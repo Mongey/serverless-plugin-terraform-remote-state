@@ -27,6 +27,7 @@
     "aws lambda"
   ],
   "devDependencies": {
+    "@types/lodash": "^4.14.170",
     "@types/node": "^14.14.22",
     "jest": "^26.6.3",
     "rimraf": "^3.0.2",
@@ -37,6 +38,10 @@
   "dependencies": {
     "aws-sdk": "^2.835.0",
     "fp-ts": "^2.9.5",
-    "io-ts": "^2.2.14"
+    "io-ts": "^2.2.14",
+    "lodash.get": "^4.4.2"
+  },
+  "peerDependencies": {
+    "serverless": ">=2"
   }
 }
