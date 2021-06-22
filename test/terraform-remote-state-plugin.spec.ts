@@ -22,6 +22,6 @@ describe('apply', () => {
         const downloader = { s3: () => () => Promise.resolve(JSON.stringify(stateJson)) }
         const result = await apply(testConfig as unknown as Serverless.Instance, null as Serverless.Options, downloader)() || []
 
-        expect((result[0].output as any).api_v1_resource).toEqual(stateJson.outputs.api_v1_resource.value)
+        expect((result as any).someInfra?.outputs?.api_v1_resource).toEqual(stateJson.outputs.api_v1_resource.value)
     })
 })

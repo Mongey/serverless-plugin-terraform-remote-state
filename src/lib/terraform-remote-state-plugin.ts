@@ -20,7 +20,7 @@ export const apply = (serverless: Serverless.Instance, _options: Serverless.Opti
           .then(parse)
           .then(r => isRight(r) ? Promise.resolve(r.right) : Promise.reject(r.left))
           .then(r => ({ key: k, output: r }))))
-      return outputs
+      return groupByKey(outputs)
     } else {
       return Promise.reject(`Bad config: ${JSON.stringify(serverless.service.custom.terraformRemoteState)}. Expected { bucket, key, region}`)
     }
@@ -60,8 +60,7 @@ export class TerraformRemoteStatePlugin {
     this.configurationVariablesSources = {
        [schemaKey]: {
          async resolve({address, _params, _resolveConfigurationProperty, _options}) {
-          const data  = await hookHandler()
-          self.resolvedData = groupByKey(data || [])
+          self.resolvedData = await hookHandler() || []
           return {
             value: get(self.resolvedData, address, null)
           }
