@@ -13,13 +13,6 @@ Inject Terraform outputs into your Serverless config.
 ```yaml
 service: my-service
 
-provider:
-  name: aws
-  runtime: nodejs12.x
-  apiGateway:
-    restApiId: ${terraformRemoteState.commonInfra.outputs.rest_api.id}
-    restApiRootResourceId: ${terraformRemoteState.commonInfra.outputs.rest_api.root_resource_id}
-
 custom:
   terraformRemoteState:
     commonInfra:
@@ -35,10 +28,17 @@ custom:
         key: state/my-service/tf.state
         region: ap-southeast-2
 
+provider:
+  name: aws
+  runtime: nodejs12.x
+  apiGateway:
+    restApiId: ${terraformRemoteState:commonInfra.outputs.rest_api.id}
+    restApiRootResourceId: ${terraformRemoteState:commonInfra.outputs.rest_api.root_resource_id}
+
 functions:
   snsListener:
     handler: src/sns_listener.handler
     events:
       - sns:
-          arn: ${terraformRemoteState.myService.outputs.my_sns_topic.arn}
+          arn: ${terraformRemoteState:myService.outputs.my_sns_topic.arn}
 ```
