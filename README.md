@@ -5,9 +5,9 @@ Inject Terraform outputs into your Serverless config.
 (Currently only compatible with Terraform 0.13+)
 
 ## Install:
-`yarn add -D serverless-plugin-terraform-remote-state`
+`yarn add -D @mongey/serverless-plugin-terraform-remote-state`
 
-`npm add --dev serverless-plugin-terraform-remote-state`
+`npm add --dev @mongey/serverless-plugin-terraform-remote-state`
 
 ## Usage
 ```yaml

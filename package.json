@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mtranter/serverless-plugin-terraform-remote-state.git"
+    "url": "git+https://github.com/Mongey/serverless-plugin-terraform-remote-state.git"
   },
   "keywords": [
     "serverless",
