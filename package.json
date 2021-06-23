@@ -1,6 +1,9 @@
 {
-  "name": "serverless-plugin-terraform-remote-state",
+  "name": "@mongey/serverless-plugin-terraform-remote-state",
   "version": "0.1.0-beta",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "main": "dist/src/index.js",
   "files": [
